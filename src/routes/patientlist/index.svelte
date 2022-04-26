@@ -3,6 +3,10 @@
   $patient.name = '';
 </script>
 
+<svelte:head>
+    <title>Pasientregister</title>
+</svelte:head>
+
 <nav class="pushpin-demo-nav" data-target="blue">
   <div class="nav-wrapper light-blue">    
       <div class="container">
