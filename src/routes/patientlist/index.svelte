@@ -37,10 +37,11 @@
                     <input id="personnumber" type="number" inputmode="numeric" class="validate">
                     <label for="personnumber">Personnummer</label>
                 </div>
-
+                <!--
                 <button class="btn waves-effect waves-light" type="submit" name="action">Søk
                     <i class="material-icons right">send</i>
                 </button>
+                -->
             </div>    
         </form>
       </div>
