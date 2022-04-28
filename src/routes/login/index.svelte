@@ -1,23 +1,13 @@
-<div class="container">
-    <h2>Logg in</h2>
-    
-    <div class="row">
-        <div class="input-field col s3">
-            <input placeholder="" id="username" type="text" class="validate">
-            <label for="username">Brukernavn</label>
-          </div>
-    </div>
-    <div class="row">
-        <div class="input-field col s3">
-          <input id="password" type="password" class="validate">
-          <label for="password">Passord</label>
-        </div>
-    </div>
-    <div class="row">
-        <a class="waves-effect waves-light btn" href="/patientlist">Logg inn</a>
-    </div>
-    <div class="row">
-        <a href="/">Glemt passord</a>
-    </div>
-    
-</div>
+<script context="module">
+    import { dev } from "$app/env";
+    import clsx from "clsx";
+  
+    export const hydrate = dev;
+  </script>
+  
+  <div class="container">
+    <h3>Log in</h3>
+    <p><a href="/api/auth/signin/google">Sign in with Google</a></p>
+    <p><a href="/api/auth/signin/oauth2">Sign in with Helse</a></p>
+  </div>
+  
