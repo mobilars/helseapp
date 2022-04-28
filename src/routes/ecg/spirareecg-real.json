@@ -10,11 +10,11 @@
             "subjectAssignment": {
               "subject": {
                 "trialSubject": {
-                  "id": "",
+                  "id": "01046512345",
                   "subjectDemographicPerson": {
                     "name": "Stridor, Broncho",
                     "administrativeGenderCode": "",
-                    "birthTime": "",
+                    "birthTime": "1965-04-01",
                     "raceCode": ""
                   }
                 }
@@ -23,7 +23,7 @@
                 "clinicalTrial": {
                   "id": "",
                   "title": "",
-                  "activityTime": "",
+                  "activityTime": "2013-06-08T09:57:34.2112Z",
                   "componentOf": {
                     "clinicalTrialProtocol": {
                       "id": "",

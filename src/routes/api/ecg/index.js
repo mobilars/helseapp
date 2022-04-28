@@ -17,16 +17,18 @@ export async function get(request) {
     var query = {};
     if (!fnr && !documentId) {
         // return all - not really feasible!!!
-        /*
         query = {};
-        const ECGs = await collection.find(query).toArray();
+        const ECGs = await collection.find(query).project({ _id: 1, 
+                'AnnotatedECG.componentOf.timepointEvent.componentOf.subjectAssignment.subject.trialSubject.id' : 1,
+                'AnnotatedECG.componentOf.timepointEvent.componentOf.subjectAssignment.componentOf.clinicalTrial.activityTime' : 1,
+            }).toArray();
+
         return {
             status: 200,
             body: {
                 ECGs
             }
         }
-        */
     } else if (fnr) {
         //console.log('Finding one ECG with FNR = ' + fnr);
         const ECG = await collection.findOne({'AnnotatedECG.componentOf.timepointEvent.componentOf.subjectAssignment.subject.trialSubject.id': fnr});

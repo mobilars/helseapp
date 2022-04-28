@@ -1,6 +1,25 @@
 <script>
     import patient from '$lib/patient';
-    $patient.name = 'Tone Døv';
+    import { onMount } from "svelte";
+
+    /**
+    * @type {any[]}
+    */
+    let observations = [];
+
+    onMount(async function () {
+          try {
+              const response = await fetch('https://localhost:3000/api/ecg');
+              var data = await response.json();
+              //console.log(data.pasienter);
+              observations = data.ECGs;
+              console.log(observations);
+          } catch (error) {
+              console.log("Error: ", error);
+          }
+      });
+
+    $patient.name = 'Stridor, Broncho';
 </script>
 
 <svelte:head>
@@ -26,7 +45,7 @@
 
 
 <div class="container">
-    <h4>Undersøkelser for Tone Døv...</h4>
+    <h4>Undersøkelser for Stridor, Broncho</h4>
     <table>
         <thead>
           <tr>
@@ -37,16 +56,16 @@
             <th>Se målinger</th>
           </tr>
         </thead>
-
         <tbody>
-          <tr>
-            <td>30.03.2022 16:55</td>
-            <td><i class="material-icons">insert_chart</i></td>
-            <td>EKG</td>
-            <td>Hvile</td>
-            <td><a href="/ecg">Se EKG</a></td>
-          </tr>
-          
+        {#each observations as obs}
+        <tr>
+          <td>{obs.AnnotatedECG.componentOf.timepointEvent.componentOf.subjectAssignment.componentOf.clinicalTrial.activityTime}</td>
+          <td><i class="material-icons">insert_chart</i></td>
+          <td>EKG</td>
+          <td>Hvile</td>
+          <td><a href="/ecg?documentId={obs._id}">Se EKG</a></td>
+        </tr>
+        {/each}
         </tbody>
       </table>
 

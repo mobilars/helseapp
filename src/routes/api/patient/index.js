@@ -41,12 +41,10 @@ export async function get(request) {
     const db = dbConnection.db();
     const collection = db.collection('Pasientregister');
     const patients = await collection.find(query).toArray();
-    //console.log(todos);
     return {
         status: 200,
         body: {
             patients
         }
     }
-
 }
