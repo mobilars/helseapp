@@ -15,7 +15,7 @@
             <a href="/patientlist" class="breadcrumb">Pasientregister</a>
             <a href="/dashboard" class="breadcrumb">{$patient.name}</a>
             <ul id="nav-mobile" class="right">
-                <li><a href="/">Brukerprofil</a></li>
+                <li><a href="/profile">Brukerprofil</a></li>
                 <li><a href="/api/auth/signout?redirect=/">Logg ut</a></li>
             </ul>
         </div>
