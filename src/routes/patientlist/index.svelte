@@ -6,7 +6,7 @@
   let patients = [];
   onMount(async function () {
         try {
-            const response = await fetch('https://localhost:3000/api/patient');
+            const response = await fetch('/api/patient');
             var data = await response.json();
             //console.log(data.pasienter);
             patients = data.patients;

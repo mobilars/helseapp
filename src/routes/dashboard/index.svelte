@@ -9,7 +9,7 @@
 
     onMount(async function () {
           try {
-              const response = await fetch('https://localhost:3000/api/ecg');
+              const response = await fetch('/api/ecg');
               var data = await response.json();
               //console.log(data.pasienter);
               observations = data.ECGs;

@@ -12,7 +12,7 @@
     onMount(async function () {
 
         try {
-            const response = await fetch('https://localhost:3000/api/ecg?documentId=12ac15e3-e571-485c-8939-c804aeedd6be');
+            const response = await fetch('/api/ecg?documentId=12ac15e3-e571-485c-8939-c804aeedd6be');
             var data = await response.json();
             ecgData = data.ECG;
             console.log(ecgData);
