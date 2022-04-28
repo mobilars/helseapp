@@ -1,20 +1,30 @@
 <script>
     import { onMount } from 'svelte';
     import Chart from 'chart.js/auto/auto.js';
-    import ecgData from './spirareecg-real.json';
+    //import ecgData from './spirareecg-real.json';
     import patient from '$lib/patient';
     import '../../app.css';
-   //$patient.name = '';
-    
-    let numberOfDataPoints = ecgData.AnnotatedECG.component.series.component.sequenceSet.component[1].sequence.value.digits.length;
-    var graphDataY = [numberOfDataPoints];
-    for (let i = 0; i < numberOfDataPoints; i++) {
-        graphDataY[i] = i*0.002;
-    }
+    //$patient.name = '';
 
     let portfolio;
-    
-    onMount(()=> {
+    let ecgData = {};
+
+    onMount(async function () {
+
+        try {
+            const response = await fetch('https://localhost:3000/api/ecg?documentId=12ac15e3-e571-485c-8939-c804aeedd6be');
+            var data = await response.json();
+            ecgData = data.ECG;
+            console.log(ecgData);
+        } catch (error) {
+            console.log("Error: ", error);
+        }
+
+        let numberOfDataPoints = ecgData.AnnotatedECG.component.series.component.sequenceSet.component[1].sequence.value.digits.length;
+        var graphDataY = [numberOfDataPoints];
+        for (let i = 0; i < numberOfDataPoints; i++) {
+            graphDataY[i] = i*0.002;
+        }
 
         let ctx = [{},{},{},{},{},{},{},{},{},{},{},{}];
         let myChart = [{},{},{},{},{},{},{},{},{},{},{},{}];
@@ -91,8 +101,6 @@
             };   
 
             myChart[i] = new Chart(ctx[i], config);
-            //console.log(`Created chart ${i}`);
-            //console.log(myChart[i]);
             
         }
 

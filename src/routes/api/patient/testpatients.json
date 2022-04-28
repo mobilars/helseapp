@@ -1,0 +1,123 @@
+[
+  {
+    "name": {
+        "family": "Doe",
+        "middlename": "Hope",
+        "given": "Jane"
+    },
+    "birthDate": "1974-12-25",
+    "identifiers": [
+        {
+            "value": "01017312345",
+            "type": "FNR"
+        }
+    ],
+    "address": [
+        {
+          "line": [
+            "534 Erewhon St"
+          ],
+          "city": "PleasantVille",
+          "district": "Rainbow",
+          "state": "Vic",
+          "postalCode": "3999"
+        }
+      ]
+  },
+  {
+    "name": {
+        "family": "Døv",
+        "given": "Tone"
+    },
+    "birthDate": "2004-12-25",
+    "identifiers": [
+        {
+            "value": "25120412345",
+            "type": "FNR"
+        }
+    ],
+    "address": [
+        {
+          "line": [
+            "534 Dark St"
+          ],
+          "city": "Nastytown",
+          "state": "Oslo",
+          "postalCode": "0755"
+        }
+      ]
+  },
+  {
+    "name": {
+        "family": "Lollipop",
+        "given": "Jonathan"
+    },
+    "birthDate": "1974-12-25",
+    "identifiers": [
+        {
+            "value": "25127412345",
+            "type": "FNR"
+        }
+    ],
+    "address": [
+        {
+          "line": [
+            "534 Icecream St"
+          ],
+          "city": "PleasantVille",
+          "district": "Rainbow",
+          "state": "Vic",
+          "postalCode": "3888"
+        }
+      ]
+  },
+  {
+    "name": {
+        "family": "Doe",
+        "given": "John"
+    },
+    "birthDate": "1975-01-01",
+    "identifiers": [
+        {
+            "value": "01017512345",
+            "type": "FNR"
+        }
+    ],
+    "address": [
+        {
+          "line": [
+            "534 Erewhon St"
+          ],
+          "city": "PleasantVille",
+          "district": "Rainbow",
+          "state": "Vic",
+          "postalCode": "3999"
+        }
+      ]
+  },
+  
+  {
+    "name": {
+        "family": "Stridor",
+        "given": "Broncho"
+    },
+    "birthDate": "1965-04-01",
+    "identifiers": [
+        {
+            "value": "01046512345",
+            "type": "FNR"
+        }
+    ],
+    "address": [
+        {
+          "line": [
+            "534 Bronchia St"
+          ],
+          "city": "Pusteby",
+          "state": "Møre og Romsdal",
+          "postalCode": "6014"
+        }
+      ]
+  }
+]
+

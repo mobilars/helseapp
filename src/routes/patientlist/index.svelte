@@ -1,6 +1,21 @@
 <script>
-  import patient from '$lib/patient';
-  $patient.name = '';
+  import { onMount } from "svelte";
+  /**
+  * @type {any[]}
+  */
+  let patients = [];
+  onMount(async function () {
+        try {
+            const response = await fetch('https://localhost:3000/api/patient');
+            var data = await response.json();
+            //console.log(data.pasienter);
+            patients = data.patients;
+            console.log(patients);
+        } catch (error) {
+            console.log("Error: ", error);
+        }
+    });
+
 </script>
 
 <svelte:head>
@@ -26,7 +41,7 @@
     <div class="row">
         <form class="col s12">
             <div class="row">
-                <div class="input-field col s3">
+                <div class="input-field col s6">
                     <i class="material-icons prefix">account_circle</i>
                     <input id="icon_prefix" type="text" class="validate">
                     <label for="icon_prefix">Etternavn</label>
@@ -61,24 +76,15 @@
         </thead>
 
         <tbody>
+          {#each patients as pat}
           <tr>
-            <td>Tone</td>
-            <td>Døv</td>
-            <td>12345 000000</td>
-            <td><a href="/dashboard">Målinger</a></td>
+            <td>{pat.name.family}, {pat.name.given}</td>
+            <td>{pat.birthDate}</td>
+            <td>{pat.identifiers.find(obj => {return obj.type === 'FNR'})?.value }</td>
+            <td><a href="/dashboard?patient={pat._id}">Målinger</a></td>
           </tr>
-          <tr>
-            <td>Line</td>
-            <td>Danser</td>
-            <td>12345 000000</td>
-            <td><a href="/dashboard">Målinger</a></td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>Lollipop</td>
-            <td>12345 000000</td>
-            <td><a href="/dashboard">Målinger</a></td>
-          </tr>
+          {/each}
+  
         </tbody>
       </table>
 </div>

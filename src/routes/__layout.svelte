@@ -1,14 +1,12 @@
 <script>
     import patient from '$lib/patient';
     import { page, session } from "$app/stores";
-    import clsx from "clsx";
 </script>
 
   <main>
     
   </main>
 
-  
   {#if $session?.user}
     <!--Session user: {JSON.stringify($session)}-->
     <slot />

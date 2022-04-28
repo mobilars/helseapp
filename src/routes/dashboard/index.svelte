@@ -16,6 +16,7 @@
             <a href="/dashboard" class="breadcrumb">{$patient.name}</a>
             <ul id="nav-mobile" class="right">
                 <li><a href="/profile">Brukerprofil</a></li>
+                <!--<li><a href="https://id.roland.bz/realms/helse/protocol/openid-connect/logout?id_token_hint={}&post_logout_redirect_uri={encodeURIComponent('https://localhost:3000/api/auth/signout?redirect=/')}">Logg ut</a></li>-->
                 <li><a href="/api/auth/signout?redirect=/">Logg ut</a></li>
             </ul>
         </div>

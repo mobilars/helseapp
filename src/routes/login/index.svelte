@@ -1,6 +1,5 @@
 <script context="module">
     import { dev } from "$app/env";
-    import clsx from "clsx";
   
     export const hydrate = dev;
   </script>

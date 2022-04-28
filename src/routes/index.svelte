@@ -13,7 +13,9 @@
 
 <div class="container">
     <h3>Velkommen</h3> 
-    {#if $session?.user}
+    {#if $session?.
+// @ts-ignore
+    user}
         Du er logget inn. 
         <p><a class="waves-effect waves-light btn" href="/patientlist">Søk etter pasienter</a></p>
         <p><a class="waves-effect waves-light btn" href="/api/auth/signout?redirect=/">Logg ut</a></p>
