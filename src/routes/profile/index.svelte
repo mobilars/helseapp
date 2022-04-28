@@ -40,6 +40,7 @@
         </tbody>
     </table>
 </div>
+<p></p>
 <div class="container">
     <div><a class="waves-effect waves-light btn blue" href="http://id.roland.bz/realms/helse/account/?referrer=app">Rediger profil</a></div>
 </div>
