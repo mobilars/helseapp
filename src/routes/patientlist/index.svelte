@@ -80,7 +80,9 @@
           <tr>
             <td>{pat.name.family}, {pat.name.given}</td>
             <td>{pat.birthDate}</td>
-            <td>{pat.identifiers.find(obj => {return obj.type === 'FNR'})?.value }</td>
+            <td>{pat.identifiers.find(
+// @ts-ignore
+            obj => {return obj.type === 'FNR'})?.value }</td>
             <td><a href="/dashboard?patient={pat._id}">Målinger</a></td>
           </tr>
           {/each}
