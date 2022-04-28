@@ -14,7 +14,7 @@
           <a href="/patientlist" class="breadcrumb">Pasientregister</a>
           <ul id="nav-mobile" class="right">
               <li><a href="/">Brukerprofil</a></li>
-              <li><a href="/">Logg ut</a></li>
+              <li><a href="/api/auth/signout?redirect=/">Logg ut</a></li>
           </ul>
       </div>
 

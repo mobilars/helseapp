@@ -115,7 +115,7 @@ let canvasWidth = '100%';
             <a href="/dashboard" class="breadcrumb">EKG 30.03.2022</a>
             <ul id="nav-mobile" class="right">
                 <li><a href="/">Brukerprofil</a></li>
-                <li><a href="/">Logg ut</a></li>
+                <li><a href="/api/auth/signout?redirect=/">Logg ut</a></li>
             </ul>
         </div>
 

@@ -5,17 +5,17 @@
 </script>
 
   <main>
-    <slot />
+    
   </main>
 
   
   {#if $session?.user}
-    <div class="container">
-      Session user: {JSON.stringify($session)}
-    </div>
+    <!--Session user: {JSON.stringify($session)}-->
+    <slot />
   {:else}
     <div class="container">
-      Aint no sunshine when she's gone: <a href=/login>Login</a>
+      <h3>Du er ikke logget inn</h3>
+      <a class="waves-effect waves-light btn" href="/api/auth/signin/oauth2">Logg inn</a>
     </div>
   {/if}
 
