@@ -44,7 +44,7 @@ export const appAuth = new SvelteKitAuth({
     },
     redirect(url: string) {
       console.log("Redirecting to:", url);
-      return "/dashboard";
+      return "/patientlist";
     }
   },
   jwtSecret: import.meta.env.VITE_JWT_SECRET_KEY,
