@@ -3,6 +3,7 @@
     import { page, session } from "$app/stores";
     import { signOut as authSignOut } from "sk-auth/client";
     import { goto } from '$app/navigation';
+    import { onMount } from 'svelte';
     $patient.name = '';
 
     function signOut() {
@@ -16,9 +17,11 @@
         goto('/patientlist');
     }
 
-    if ($session?.user) {
-        gotoPatientList();
-    }
+    onMount(async function () {
+        if ($session?.user) {
+            gotoPatientList();
+        }
+    });
     
 </script>
 
