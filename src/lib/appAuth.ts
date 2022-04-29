@@ -1,8 +1,9 @@
-import { SvelteKitAuth } from "sk-auth";
+import { SvelteKitAuth, type JWT , type Session} from "sk-auth";
 import {
   OAuth2Provider,
   GoogleOAuth2Provider,
 } from "sk-auth/providers";
+import { TokenClass, updateLanguageServiceSourceFile } from "typescript";
 
 export const appAuth = new SvelteKitAuth({
   providers: [
@@ -28,7 +29,21 @@ export const appAuth = new SvelteKitAuth({
     }),
   ],
   callbacks: {
+    signIn() {
+      console.log("signIn");
+      return true;
+    },
     jwt(token, profile) {
+      //console.log('jwt');
+      var date = new Date();
+      //console.log("Time:        ", date.getTime());
+      //console.log('Expiry time: ', token?.exp);
+      if (token?.exp < date.getTime()/1000) {
+        console.log("Token expired");
+        return {} as JWT;
+      }
+      //console.log("token: ", JSON.stringify(token));
+      //console.log("profile: ", JSON.stringify(profile));
       if (profile?.provider) {
         const { provider, ...account } = profile;
         token = {
@@ -43,9 +58,23 @@ export const appAuth = new SvelteKitAuth({
       return token;
     },
     redirect(url: string) {
-      console.log("Redirecting to:", url);
+      //console.log("Redirecting to:", url);
       return "/patientlist";
-    }
+    },
+    session(token: JWT, session: Session) {
+      //console.log('session')
+      var date = new Date();
+      //console.log("Time:        ", date.getTime()/1000);
+      //console.log('Expiry time: ', token?.exp);
+      if (token?.exp < date.getTime()/1000) {
+        console.log("Token expired");
+        return {} as Session;
+      }
+      //console.log("Session:", JSON.stringify(session));
+      //console.log("Token:", JSON.stringify(token));
+      return session;
+    },
+
   },
   jwtSecret: import.meta.env.VITE_JWT_SECRET_KEY,
 });
