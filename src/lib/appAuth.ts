@@ -34,10 +34,10 @@ export const appAuth = new SvelteKitAuth({
       return true;
     },
     jwt(token, profile) {
-      //console.log('jwt');
+      //console.log('jwt'); 
       var date = new Date();
-      //console.log("Time:        ", date.getTime());
-      //console.log('Expiry time: ', token?.exp);
+      console.log("Time:        ", date.getTime());
+      console.log('Expiry time: ', token?.exp);
       if (token?.exp < date.getTime()/1000) {
         console.log("Token expired");
         return {} as JWT;
@@ -64,8 +64,8 @@ export const appAuth = new SvelteKitAuth({
     session(token: JWT, session: Session) {
       //console.log('session')
       var date = new Date();
-      //console.log("Time:        ", date.getTime()/1000);
-      //console.log('Expiry time: ', token?.exp);
+      console.log("Time:        ", date.getTime()/1000);
+      console.log('Expiry time: ', token?.exp);
       if (token?.exp < date.getTime()/1000) {
         console.log("Token expired");
         return {} as Session;
@@ -77,4 +77,5 @@ export const appAuth = new SvelteKitAuth({
 
   },
   jwtSecret: import.meta.env.VITE_JWT_SECRET_KEY,
+  jwtExpiresIn: '1h'
 });
