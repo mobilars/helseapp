@@ -92,8 +92,8 @@
                             display: true,
                             ticks:  {
                                 display: false,
-                                stepSize: 100,
-                                count: 10
+                                stepSize: 10,
+                                count: 5
                             }
                         }
                     }
@@ -131,7 +131,7 @@ let canvasWidth = '100%';
 </nav>
 
 <div class="row">
-<div class="col s8">
+<div class="col s10">
     <canvas class="leadgraph" id="my1" bind:this={portfolio} width={canvasWidth} height={canvasHeight} />
     <canvas class="leadgraph" id="my2" bind:this={portfolio} width={canvasWidth} height={canvasHeight} />
     <canvas class="leadgraph" id="my3" bind:this={portfolio} width={canvasWidth} height={canvasHeight} />
@@ -145,7 +145,7 @@ let canvasWidth = '100%';
     <canvas class="leadgraph" id="my11" bind:this={portfolio} width={canvasWidth} height={canvasHeight} />
     <canvas class="leadgraph" id="my12" bind:this={portfolio} width={canvasWidth} height={canvasHeight} />
 </div>
-<div class="col s2"></div>
+<!--<div class="col s2"></div>-->
 <div class="col s2">
 
     <div class="card-panel compact">
@@ -184,6 +184,7 @@ let canvasWidth = '100%';
 <style>
     .leadgraph {
         margin-top: 5px;
+        background-color: #fffdda;
         /*
         width:1700px !important; 
         height:70px !important;
